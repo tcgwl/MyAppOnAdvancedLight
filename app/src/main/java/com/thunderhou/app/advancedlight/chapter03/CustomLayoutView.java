@@ -55,10 +55,10 @@ public class CustomLayoutView extends View {
 //                layoutParams.topMargin = getTop() + offsetY;
 //                setLayoutParams(layoutParams);
 //                //方式4: 动画,在调用处实现
-//                //方式5: scrollTo与scrollBy 移动的是View的内容,如果在ViewGroup中使用,则是移动其所有的子View
-//                //若要实现CustomView随手指移动的效果,就需要将偏移量设置为负值
-//                //放大镜与报纸, 手机屏幕与画布
-//                ((View)getParent()).scrollBy(-offsetX, -offsetY);
+                //方式5: scrollTo与scrollBy 移动的是View的内容,如果在ViewGroup中使用,则是移动其所有的子View
+                //若要实现CustomView随手指移动的效果,就需要将偏移量设置为负值
+                //放大镜与报纸, 手机屏幕与画布
+                ((View)getParent()).scrollBy(-offsetX, -offsetY);
                 //方式6: Scroller
                 break;
         }

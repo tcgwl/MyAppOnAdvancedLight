@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/id_btn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="包装类"/>
+
     <com.thunderhou.app.advancedlight.chapter03.CustomLayoutView
         android:id="@+id/id_customLayoutView"
         android:layout_width="80dp"
