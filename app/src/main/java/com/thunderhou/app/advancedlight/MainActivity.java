@@ -5,7 +5,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.thunderhou.app.advancedlight.base.BaseActivity;
 import com.thunderhou.app.advancedlight.chapter01.recyclerview.DividerItemDecoration;
