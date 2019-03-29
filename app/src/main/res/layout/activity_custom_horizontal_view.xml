@@ -13,5 +13,9 @@
             android:id="@+id/lv_two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+        <ListView
+            android:id="@+id/lv_three"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </com.thunderhou.app.advancedlight.chapter03.CustomHorizontalView>
 </RelativeLayout>

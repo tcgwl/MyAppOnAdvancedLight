@@ -20,11 +20,13 @@ public class CustomHorizontalView extends ViewGroup {
     private VelocityTracker mVelocityTracker;
 
     public CustomHorizontalView(Context context) {
-        this(context, null);
+        super(context);
+        init();
     }
 
     public CustomHorizontalView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
+        init();
     }
 
     public CustomHorizontalView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -189,7 +191,7 @@ public class CustomHorizontalView extends ViewGroup {
     public void computeScroll() {
         super.computeScroll();
         if (mScroller.computeScrollOffset()) {
-            scrollTo(mScroller.getCurrX(), mScroller.getCurrX());
+            scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             postInvalidate();
         }
     }
