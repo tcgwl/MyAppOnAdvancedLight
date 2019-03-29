@@ -10,6 +10,7 @@ import com.thunderhou.app.advancedlight.base.BaseActivity;
 import com.thunderhou.app.advancedlight.chapter01.recyclerview.DividerItemDecoration;
 import com.thunderhou.app.advancedlight.chapter01.recyclerview.HomeAdapter;
 import com.thunderhou.app.advancedlight.chapter01.recyclerview.RecyclerViewActivity;
+import com.thunderhou.app.advancedlight.chapter03.CustomHorizontalViewActivity;
 import com.thunderhou.app.advancedlight.chapter03.CustomViewActivity;
 
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity {
         mList = new ArrayList<>();
         mList.add("chapter01-RecyclerView");
         mList.add("chapter03-CustomView");
+        mList.add("chapter03-CustomHorizontalView");
     }
 
     @Override
@@ -68,6 +70,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 1:
                 intent = new Intent(mContext, CustomViewActivity.class);
+                break;
+            case 2:
+                intent = new Intent(mContext, CustomHorizontalViewActivity.class);
                 break;
         }
         mContext.startActivity(intent);
