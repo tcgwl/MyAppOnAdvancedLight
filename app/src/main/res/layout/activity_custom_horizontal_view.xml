@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-    <com.thunderhou.app.advancedlight.chapter03.CustomHorizontalView
+    <com.thunderhou.app.advancedlight.chapter03.horizontal.CustomHorizontalView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ListView
@@ -17,5 +17,5 @@
             android:id="@+id/lv_three"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-    </com.thunderhou.app.advancedlight.chapter03.CustomHorizontalView>
+    </com.thunderhou.app.advancedlight.chapter03.horizontal.CustomHorizontalView>
 </RelativeLayout>

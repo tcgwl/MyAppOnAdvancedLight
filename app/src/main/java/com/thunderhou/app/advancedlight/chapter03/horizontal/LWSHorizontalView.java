@@ -1,4 +1,4 @@
-package com.thunderhou.app.advancedlight.chapter03;
+package com.thunderhou.app.advancedlight.chapter03.horizontal;
 
 import android.content.Context;
 import android.util.AttributeSet;
