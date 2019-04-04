@@ -10,9 +10,10 @@ import com.thunderhou.app.advancedlight.base.BaseActivity;
 import com.thunderhou.app.advancedlight.chapter01.recyclerview.DividerItemDecoration;
 import com.thunderhou.app.advancedlight.chapter01.recyclerview.HomeAdapter;
 import com.thunderhou.app.advancedlight.chapter01.recyclerview.RecyclerViewActivity;
-import com.thunderhou.app.advancedlight.chapter03.horizontal.CustomHorizontalViewActivity;
-import com.thunderhou.app.advancedlight.chapter03.vertical.CustomVerticalActivity;
 import com.thunderhou.app.advancedlight.chapter03.CustomViewActivity;
+import com.thunderhou.app.advancedlight.chapter03.horizontal.CustomHorizontalViewActivity;
+import com.thunderhou.app.advancedlight.chapter03.stickynavlayout.StickyNavLayoutActivity;
+import com.thunderhou.app.advancedlight.chapter03.vertical.CustomVerticalActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,11 +35,12 @@ public class MainActivity extends BaseActivity {
         mList.add("chapter03-CustomView");
         mList.add("chapter03-CustomHorizontalView");
         mList.add("chapter03-CustomVerticalView");
+        mList.add("chapter03-StickyNavLayout");
     }
 
     @Override
     protected void initView() {
-        mRecyclerView= findViewById(R.id.id_recyclerview);
+        mRecyclerView = findViewById(R.id.id_recyclerview);
         setListView();
     }
 
@@ -78,6 +80,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 3:
                 intent = new Intent(mContext, CustomVerticalActivity.class);
+                break;
+            case 4:
+                intent = new Intent(mContext, StickyNavLayoutActivity.class);
                 break;
         }
         mContext.startActivity(intent);

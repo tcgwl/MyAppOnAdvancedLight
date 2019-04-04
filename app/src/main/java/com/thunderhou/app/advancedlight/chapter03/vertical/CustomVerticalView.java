@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
@@ -19,6 +20,8 @@ public class CustomVerticalView extends ViewGroup {
     private int mCurrentIndex;
     private int mChildCount;
     private int mChildHeight;
+    private int mMinimumVelocity;
+    private int mMaximumVelocity;
 
     public CustomVerticalView(Context context) {
         this(context, null);
@@ -33,6 +36,8 @@ public class CustomVerticalView extends ViewGroup {
 
         mScroller = new Scroller(context);
         mTracker = VelocityTracker.obtain();
+        mMinimumVelocity = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
+        mMaximumVelocity = ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
     }
 
     @Override
@@ -132,13 +137,21 @@ public class CustomVerticalView extends ViewGroup {
                 break;
             case MotionEvent.ACTION_UP:
                 //scrollToOtherPage();
-                int distanceY = getScrollY() - mCurrentIndex * mChildHeight;
-                Log.d("thunderHou", "distanceY="+distanceY);
-                if (distanceY < 0) {
-                    smoothScrollTo(0, 0);
-                } else if (distanceY > (mChildCount - 1) * mChildHeight) {
-                    smoothScrollTo(0, (mChildCount - 1) * mChildHeight);
+
+//                int distanceY = getScrollY() - mCurrentIndex * mChildHeight;
+//                Log.d("thunderHou", "distanceY="+distanceY);
+//                if (distanceY < 0) {
+//                    smoothScrollTo(0, 0);
+//                } else if (distanceY > (mChildCount - 1) * mChildHeight) {
+//                    smoothScrollTo(0, (mChildCount - 1) * mChildHeight);
+//                }
+
+                mTracker.computeCurrentVelocity(1000, mMaximumVelocity);
+                int velocityY = (int) mTracker.getYVelocity();
+                if (Math.abs(velocityY) > mMinimumVelocity) {
+                    fling(-velocityY);
                 }
+                mTracker.clear();
                 break;
         }
         mLastX = x;
@@ -186,6 +199,24 @@ public class CustomVerticalView extends ViewGroup {
         if (mScroller.computeScrollOffset()) {
             scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
             postInvalidate();
+        }
+    }
+
+    private void fling(int velocityY) {
+        mScroller.fling(0,getScrollY(),0,velocityY,0,0,0,(mChildCount-1)*mChildHeight);
+        invalidate();
+    }
+
+    @Override
+    public void scrollTo(int x, int y) {
+        if (y < 0) {
+            y = 0;
+        }
+        if (y > (mChildCount - 1) * mChildHeight) {
+            y = (mChildCount - 1) * mChildHeight;
+        }
+        if (y != getScrollY()) {
+            super.scrollTo(x, y);
         }
     }
 }
